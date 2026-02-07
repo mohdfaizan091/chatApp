@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
     console.log("user is connected");
     console.log("user id - ", socket.id);
+    socket.broadcast.emit("welcome", "welcome to the server");
 })
 
 module.exports = server;
