@@ -46,4 +46,27 @@ Unlike HTTP (request–response based), Socket.IO maintains a **persistent conne
 ```js
 io.on("connection", (socket) => {
   console.log("user connected:", socket.id);
+
+socket.on("disconnect", () => {
+    console.log("user disconnected:", socket.id);
+  });
 });
+
+Explanation:
+
+connection fires when a new client connects
+Each client gets a unique socket.id
+disconnect fires when the client leaves or refreshes
+
+#### Server Side
+
+const socket = io("http://localhost:3000");
+
+socket.on("connect", () => {
+  console.log("connected to server:", socket.id);
+});
+
+Explanation:
+
+Client establishes a persistent WebSocket connection
+Connection remains open until explicitly closed
