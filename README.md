@@ -58,7 +58,7 @@ connection fires when a new client connects
 Each client gets a unique socket.id
 disconnect fires when the client leaves or refreshes
 
-#### Server Side
+#### client Side
 
 const socket = io("http://localhost:3000");
 
